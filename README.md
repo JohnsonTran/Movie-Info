@@ -1,4 +1,4 @@
-Website that where users can look at information about movies.
+Website where users can look at information about movies.
 
 Technologies:
 React
