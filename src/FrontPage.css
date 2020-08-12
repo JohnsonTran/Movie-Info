@@ -20,7 +20,7 @@ body, html {
     width: 100%;
     height: auto;
     color: white;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .container h1 {
@@ -38,21 +38,52 @@ body, html {
     border-radius: 0;
     -webkit-appearance: none;
     border: 1px solid transparent;
-    margin-top: 50px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container input, .container button {
+    margin-top: 40px;
 }
 
 input:focus {
     outline: none;
 }
 
+.body-text {
+    padding-right: 20%;
+    padding-left: 20%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.body-text h2 {
+    margin-bottom: 35px;
+}
+
+.explore-btn {
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px; 
+    border-radius: 8px;
+}
+
+.explore-btn:hover {
+    background-color: darkblue;
+}
+
 @media only screen and (max-width: 920px) {
-    h1 {
+    .container h1 {
         font-size: 5em;
     }
 }
 
 @media only screen and (max-width: 540px) {
-    h2 {
+    .container h2 {
         font-size: 1.4em;
     }
 }

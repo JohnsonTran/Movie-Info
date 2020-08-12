@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom"
+
 import FrontPage from "./FrontPage"
+import MoviesPage from './MoviesPage';
 
 function App() {
 	return (
 		<div className="App">
-			<FrontPage />
+			<Router>
+				<Route exact path="/" component={FrontPage} />
+				<Route exact path="/movies" component={MoviesPage} />
+			</Router>
 		</div>
 	);
 }
