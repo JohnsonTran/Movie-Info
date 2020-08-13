@@ -15,3 +15,31 @@ body, html {
     text-decoration: none;
     padding-left: 10px;
 }
+
+.title {
+    text-align: center;
+}
+
+ul {
+    border-bottom: 2px solid lightgray;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+li {
+    display: inline-block;
+    background-color: lightgray;
+    padding: 10px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+li:hover {
+    background-color: gray;
+}
+
+.active {
+    background-color: gray;
+}
