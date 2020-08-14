@@ -26,7 +26,7 @@ class MoviesPage extends React.Component {
 
     render() {
         let movieItems = MovieData.movies.map(elem => {
-            return <MovieItem title={elem.title.title} image={elem.title.image.url}/>
+            return <MovieItem title={elem.title.title} image={elem.title.image.url} rating={elem.ratings.rating} data={elem}/>
         })
         return (
             <div>
