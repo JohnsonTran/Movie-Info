@@ -14,14 +14,6 @@ class MoviesPage extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    sleep(milliseconds) {
-        const date = Date.now();
-        let currentDate = null;
-        do {
-          currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
-      }
-
     componentDidMount() {
         
     }
