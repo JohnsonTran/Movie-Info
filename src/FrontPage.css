@@ -14,7 +14,7 @@ body, html {
     position: relative;
 }
 
-.container {
+.banner {
     text-align: center;
     position: absolute;
     width: 100%;
@@ -23,11 +23,11 @@ body, html {
     margin-top: 80px;
 }
 
-.container h1 {
+.banner h1 {
     font-size: 72px;
 }
 
-.container h2 {
+.banner h2 {
     margin-top: -25px;
 }
 
@@ -44,7 +44,7 @@ button {
     cursor: pointer;
 }
 
-.container input, .container button {
+.banner input, .banner button {
     margin-top: 40px;
 }
 
@@ -77,13 +77,13 @@ input:focus {
 }
 
 @media only screen and (max-width: 920px) {
-    .container h1 {
+    .banner h1 {
         font-size: 4em;
     }
 }
 
 @media only screen and (max-width: 540px) {
-    .container h2 {
+    .banner h2 {
         font-size: 1.4em;
     }
 }
