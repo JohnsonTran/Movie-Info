@@ -14,10 +14,6 @@ class MoviesPage extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    componentDidMount() {
-        
-    }
-
     handleChange(event) {
         this.setState({
             currentTab: event.target.getAttribute('value')
@@ -25,9 +21,21 @@ class MoviesPage extends React.Component {
     }
 
     render() {
-        let movieItems = MovieData.movies.map(elem => {
-            return <MovieItem title={elem.title.title} image={elem.title.image.url} rating={elem.ratings.rating} data={elem}/>
-        })
+        let movieItems
+        if (this.state.currentTab === "most-popular") {
+            movieItems = MovieData.mostPopularMovies.map(elem => {
+                return <MovieItem data={elem} />
+            })
+        } else if (this.state.currentTab === "top-rated") {
+            movieItems = MovieData.topRatedMovies.map(elem => {
+                return <MovieItem data={elem} />
+            })
+        } else {
+            movieItems = MovieData.comingSoonMovies.map(elem => {
+                return <MovieItem data={elem} comingSoon="true"/>
+            })
+        }
+        
         return (
             <div>
                 <div className="header-bar">
