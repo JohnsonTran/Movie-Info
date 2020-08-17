@@ -8,7 +8,6 @@ class MoviesPage extends React.Component {
         super(props)
         this.state = {
             currentTab: "most-popular",
-            data: {}
         }
         this.handleChange = this.handleChange.bind(this)
     }

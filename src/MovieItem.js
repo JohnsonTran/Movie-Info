@@ -1,13 +1,10 @@
 import React from "react"
+import Img from "react-cool-img"
 import "./MovieItem.css"
 
 class MovieItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            isLoading: true
-        }
-        console.log("created new one")
     }
 
     render() {
@@ -15,11 +12,10 @@ class MovieItem extends React.Component {
             <div className="card">
                 <div className="card-body">
                     <div className="card-img">
-                        <img 
-                        style={this.state.isLoading ? {backgroundColor: 'gray'} : {}}
+                        <Img 
                         src={this.props.data.title.image ? this.props.data.title.image.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png"} 
                         alt="Movie" 
-                        onLoad={() => this.setState({isLoading: false})}></img>
+                        lazy={true}/>
                         <div className="movie-info">
                             <p className="certificate">{this.props.data.certificates ? this.props.data.certificates.US[0].certificate : ""}</p>
                             <p className="length">{this.props.data.title.runningTimeInMinutes} minutes</p>

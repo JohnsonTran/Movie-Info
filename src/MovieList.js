@@ -5,24 +5,21 @@ import MovieItem from "./MovieItem"
 class MovieList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            imgsLoaded: 0,
-        }
     }
 
     render() {
         let movieItems
         if (this.props.currentTab === "most-popular") {
             movieItems = MovieData.mostPopularMovies.map(elem => {
-                return <MovieItem data={elem} isLoading={true} />
+                return <MovieItem data={elem} />
             })
         } else if (this.props.currentTab === "top-rated") {
             movieItems = MovieData.topRatedMovies.map(elem => {
-                return <MovieItem data={elem} isLoading={true} />
+                return <MovieItem data={elem} />
             })
         } else {
             movieItems = MovieData.comingSoonMovies.map(elem => {
-                return <MovieItem data={elem} comingSoon="true" isLoading={true} />
+                return <MovieItem data={elem} comingSoon="true" />
             })
         }
 
