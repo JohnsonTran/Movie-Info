@@ -1,8 +1,7 @@
 import React from 'react'
 import "./MoviesPage.css"
 import { Link } from 'react-router-dom'
-import MovieData from './MovieData'
-import MovieItem from "./MovieItem"
+import MovieList from './MovieList'
 
 class MoviesPage extends React.Component {
     constructor(props) {
@@ -21,21 +20,6 @@ class MoviesPage extends React.Component {
     }
 
     render() {
-        let movieItems
-        if (this.state.currentTab === "most-popular") {
-            movieItems = MovieData.mostPopularMovies.map(elem => {
-                return <MovieItem data={elem} />
-            })
-        } else if (this.state.currentTab === "top-rated") {
-            movieItems = MovieData.topRatedMovies.map(elem => {
-                return <MovieItem data={elem} />
-            })
-        } else {
-            movieItems = MovieData.comingSoonMovies.map(elem => {
-                return <MovieItem data={elem} comingSoon="true"/>
-            })
-        }
-        
         return (
             <div>
                 <div className="header-bar">
@@ -48,9 +32,7 @@ class MoviesPage extends React.Component {
                         <li className={this.state.currentTab === "top-rated" ? "active" : undefined} value="top-rated" onClick={this.handleChange}>Top Rated</li>
                         <li className={this.state.currentTab === "future-release" ? "active" : undefined} value="future-release" onClick={this.handleChange}>Future Release</li>
                     </ul>
-                    <div className="movies">
-                        {movieItems}
-                    </div>
+                    <MovieList currentTab={this.state.currentTab}/>
                 </div>
             </div>
         )
