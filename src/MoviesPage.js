@@ -17,16 +17,18 @@ class MoviesPage extends React.Component {
     handleChange(event) {
         const {name, value} = event.target
         // have to use getAttribute because React doesn't get them by default like for input
-        console.log(event.target)
         if (event.target.getAttribute('name') === "currentTab") {
-            console.log("yes")
-            this.setState({
-                [event.target.getAttribute('name')]: event.target.getAttribute('value')
-            })  
+            let name = event.target.getAttribute('name')
+            let value = event.target.getAttribute('value')
+            // reset the genre filter when the user changes tabs
+            this.setState(prevState => ({
+                [name]: value,
+                genreFilter: prevState.currentTab !== value ? "None" : prevState.genreFilter
+            }))
         } else {
             this.setState({
-                [name]: value
-            })  
+                [name]: value,
+            })
         }
     }
 
@@ -62,12 +64,14 @@ class MoviesPage extends React.Component {
                         <li name="currentTab" className={this.state.currentTab === "top-rated" ? "active" : undefined} value="top-rated" onClick={this.handleChange}>Top Rated</li>
                         <li name="currentTab" className={this.state.currentTab === "future-release" ? "active" : undefined} value="future-release" onClick={this.handleChange}>Future Release</li>
                     </ul>
-                    <select name="genreFilter" value={this.genreFilter} onChange={this.handleChange}>
-                        <option value="None" >Choose a genre</option>
-                        {genres.map(genre => {
-                            return <option value={genre} >{genre}</option>
-                        })}
-                    </select>
+                    <div className="genreSelect">
+                        <select name="genreFilter" value={this.state.genreFilter} onChange={this.handleChange}>
+                            <option value="None">Choose a genre</option>
+                            {genres.map(genre => {
+                                return <option key={genre} value={genre}>{genre}</option>
+                            })}
+                        </select>
+                    </div>
                     <MovieList data={listData} genreFilter={this.state.genreFilter}/>
                 </div>
             </div>
