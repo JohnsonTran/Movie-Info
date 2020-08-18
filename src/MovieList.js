@@ -1,5 +1,4 @@
 import React from "react"
-import MovieData from './MovieData'
 import MovieItem from "./MovieItem"
 
 class MovieList extends React.Component {
@@ -8,20 +7,14 @@ class MovieList extends React.Component {
     }
 
     render() {
-        let movieItems
-        if (this.props.currentTab === "most-popular") {
-            movieItems = MovieData.mostPopularMovies.map(elem => {
-                return <MovieItem data={elem} />
-            })
-        } else if (this.props.currentTab === "top-rated") {
-            movieItems = MovieData.topRatedMovies.map(elem => {
-                return <MovieItem data={elem} />
-            })
-        } else {
-            movieItems = MovieData.comingSoonMovies.map(elem => {
-                return <MovieItem data={elem} comingSoon="true" />
-            })
-        }
+        let movieData = this.props.data
+        
+        if (this.props.genreFilter !== "None") {
+            movieData = movieData.filter(movie => movie.genres.includes(this.props.genreFilter))
+        } 
+        let movieItems = movieData.map(elem => {
+            return <MovieItem data={elem} />
+        })
 
         return (
             <div className="movies">

@@ -8,11 +8,13 @@ class MovieItem extends React.Component {
     }
 
     render() {
+        var releaseDate = new Date(this.props.data.releaseDate).toDateString().slice(4)
         return (
             <div className="card">
                 <div className="card-body">
                     <div className="card-img">
                         <Img 
+                        placeholder="https://www.solidbackgrounds.com/images/2560x1440/2560x1440-gray-solid-color-background.jpg"
                         src={this.props.data.title.image ? this.props.data.title.image.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png"} 
                         alt="Movie" 
                         lazy={true}/>
@@ -26,7 +28,7 @@ class MovieItem extends React.Component {
                     </div>
                     <div className="card-info">
                         <h4>{this.props.data.title.title}</h4>
-                        <p>{this.props.comingSoon ? this.props.data.releaseDate :
+                        <p>{this.props.comingSoon ? releaseDate :
                         this.props.data.ratings.rating ? this.props.data.ratings.rating+"/10" : "No Rating"}</p>
                     </div>
                 </div>
