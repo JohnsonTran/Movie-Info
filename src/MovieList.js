@@ -13,7 +13,7 @@ class MovieList extends React.Component {
             movieData = movieData.filter(movie => movie.genres.includes(this.props.genreFilter))
         } 
         let movieItems = movieData.map(elem => {
-            return <MovieItem key={elem.title.title} data={elem} />
+            return <MovieItem key={elem.title.title} data={elem} comingSoon={this.props.comingSoon}/>
         })
 
         return (

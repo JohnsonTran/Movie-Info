@@ -72,7 +72,7 @@ class MoviesPage extends React.Component {
                             })}
                         </select>
                     </div>
-                    <MovieList data={listData} genreFilter={this.state.genreFilter}/>
+                    <MovieList data={listData} genreFilter={this.state.genreFilter} comingSoon={this.state.currentTab === "future-release"}/>
                 </div>
             </div>
         )
